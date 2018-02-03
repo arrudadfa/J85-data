@@ -1,3 +1,4 @@
+import matplotlib.pylab as plt
 import numpy as np
 from numpy import loadtxt
 from scipy.interpolate import interp1d
@@ -71,3 +72,50 @@ m5corr1 = m5corr1 *.4536
 m5corr2,effT = np.loadtxt('effT.csv', delimiter=' ',
                           dtype=float, usecols=(0,1), unpack=True)
 m5corr2 = m5corr2 *.4536
+
+####################################################################
+#######PLOTANDO DADOS###############################################
+####################################################################
+plt.figure(1)
+plt.scatter(m3corr50,Prat1_50, label=("Corrected Speed 50"))
+plt.scatter(m3corr60,Prat1_60, label=("Corrected Speed 60"))
+plt.scatter(m3corr70,Prat1_70, label=("Corrected Speed 70"))
+plt.scatter(m3corr80,Prat1_80, label=("Corrected Speed 80"))
+plt.scatter(m3corr90,Prat1_90, label=("Corrected Speed 90"))
+plt.scatter(m3corr100,Prat1_100, label=("Corrected Speed 100"))
+plt.title("Overall Compressor Pressure Ratio Map")
+plt.xlabel("Corrected Mass Flow rate Kg/S")
+plt.ylabel("P3/P2")
+plt.legend(loc="best")
+plt.grid()
+
+plt.figure(2)
+plt.scatter(Prat2_50,effC_50, label=("Corrected Speed 50"))
+plt.scatter(Prat2_60,effC_60, label=("Corrected Speed 60"))
+plt.scatter(Prat2_70,effC_70, label=("Corrected Speed 70"))
+plt.scatter(Prat2_80,effC_80, label=("Corrected Speed 80"))
+plt.scatter(Prat2_90,effC_90, label=("Corrected Speed 90"))
+plt.scatter(Prat2_100,effC_100, label=("Corrected Speed 100"))
+plt.title("Overall Compressor Efficiency Map")
+plt.xlabel("P3/P2")
+plt.ylabel("Compressor Efficiency")
+plt.legend(loc="best")
+plt.grid()
+
+plt.figure(3)
+plt.plot(m5corr1,PratT, label=("Corrected Speed Ratio 2.17"))
+plt.title("Turbine Pressure Ratio Map")
+plt.xlabel("Corrected Mass Flow rate Kg/S")
+plt.ylabel("P4/P5")
+plt.legend(loc="best")
+plt.grid()
+
+plt.figure(4)
+plt.plot(m5corr2,effT, label=("Corrected Speed Ratio 2.17"))
+plt.title("Turbine Efficiency Map")
+plt.xlabel("Corrected Mass Flow rate Kg/S")
+plt.ylabel("Turbine Efficiency")
+plt.legend(loc="best")
+plt.grid()
+
+plt.show()
