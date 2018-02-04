@@ -15,7 +15,7 @@ m3corr90, Prat1_90 = np.loadtxt('ratio90.csv', delimiter=' ',
                                 dtype=float, usecols=(0,1), unpack=True)
 m3corr100, Prat1_100 = np.loadtxt('ratio100.csv', delimiter=' ',
                                   dtype=float, usecols=(0,1), unpack=True)
-## SI CONVETION
+## SI CONVERTION
 m3corr50 = m3corr50 *.4536
 m3corr60 = m3corr60 *.4536
 m3corr70 = m3corr70 *.4536
